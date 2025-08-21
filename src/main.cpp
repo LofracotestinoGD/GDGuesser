@@ -5,15 +5,17 @@
 
 using namespace geode::prelude;
 
-class $modify(MyCL, CreatorLayer) {
+class $modify(MyCL, CreatorLayer) {  
     bool init() {
         if (!CreatorLayer::init()) return false;
         
         auto btnSpr = CCSprite::create("btn.png"_spr);
         btnSpr->setScale(0.1f);
-        auto btn = CCMenuItemExt::createSpriteExtra(btnSpr, [this](CCObject*) {
-            StartPopup::create()->show();
-        });
+        auto btn = CCMenuItemSpriteExtra::create(
+        btnSpr,
+        this,
+        StartPopup::create()->show();
+        );
         // btnSpr->setScale(0.075f);
         btn->setID("start-btn"_spr);
 
